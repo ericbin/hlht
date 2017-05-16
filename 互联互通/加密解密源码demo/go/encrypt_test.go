@@ -1,6 +1,9 @@
 package encrypt
 
-import "testing"
+import (
+	"testing"
+	"fmt"
+)
 
 /*func main() {
 	TestCBCAES()
@@ -50,4 +53,16 @@ func TestCheckSignWithBody(t *testing.T) {
 	if CheckSignWithBody(ok, signKey) == false {
 		t.Error("check sign error")
 	}
+}
+
+
+
+func TestCBCDEC(t *testing.T) {
+	// AES encryption
+	// Key length: 16, 24, 32 bytes => AES-128, AES-192, AES-256
+
+	s:= `X6j5yLBjFJIUuR/iC32nO9B05cUsNBby7FOwv1nfGUWGiq+Sj/GrnRaahYanSihydALbqnPNrsc8\nRZmfKKSU1vOZh2JrrOibvDGEuhgZ4zJEZ/oqD1N7QvPhyam5PqeGsJzbEsa0Q+MQDC2dKhBgxF2Q\n9Oe1S7VaZc599s3i93K0Om1OH+mvnH1e0hUB2itNnY/GO7qSREwmclfaplaEuvWjfg7vZkRtOtmA\ngoh9FW666q+AfG2X4KnjG19Ta9cpnXlWCuzbzqmEMOhdNnquWoOi9lHcghdgW2njReDV8WO+cItI\nODyBIlKJcBEJgtXIpv2i0KDBXeCv/zVYRvDXIKIznlQ1W3PzwYpyV6kEpGX131iaXnOpSY0E7HUC\nw3nAbb06JIRN6zPc1iBNoLlkdLNFBMdtq9/SEarXZqgayxcOpSp3teYlOdMIF4+MvRDPoM9Cjc3L\nwOfSM0IoyXLMDfoL5Ch9QU5Qtrxyq+GHx/3mUYMycRUzNa7e3p2lIpP9p/8qw95GfI1oj/qsPwZ5\nlQ=="`
+
+	fmt.Println(AesDecrypt(s, key, iv))
+
 }

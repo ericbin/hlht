@@ -66,18 +66,18 @@ public class Main {
 //        enString = AESUtil.Encrypt(cSrc, cKey, sIV);
 //        System.out.println("加密后的字串是1：" + enString);
 
-//        cKey = "1234567890abcdef";
-//        sIV = "1234567890abcdef";
-//        enString = "Uxi6kQ6/4+l7iINZD1FJXvggAAm1jaBicGMpWfm6P7Psd9P6PJrzlNQampkeH/XJ";
-//        String DeString = AESUtil.Decrypt(enString, cKey, sIV);
-//        System.out.println(enString + "\n解密后的字串是：\n" + DeString);
+        cKey = "1234567890abcdef";
+        sIV = "1234567890abcdef";
+        enString = "X6j5yLBjFJIUuR/iC32nO9B05cUsNBby7FOwv1nfGUWGiq+Sj/GrnRaahYanSihydALbqnPNrsc8\nRZmfKKSU1vOZh2JrrOibvDGEuhgZ4zJEZ/oqD1N7QvPhyam5PqeGsJzbEsa0Q+MQDC2dKhBgxF2Q\n9Oe1S7VaZc599s3i93K0Om1OH+mvnH1e0hUB2itNnY/GO7qSREwmclfaplaEuvWjfg7vZkRtOtmA\ngoh9FW666q+AfG2X4KnjG19Ta9cpnXlWCuzbzqmEMOhdNnquWoOi9lHcghdgW2njReDV8WO+cItI\nODyBIlKJcBEJgtXIpv2i0KDBXeCv/zVYRvDXIKIznlQ1W3PzwYpyV6kEpGX131iaXnOpSY0E7HUC\nw3nAbb06JIRN6zPc1iBNoLlkdLNFBMdtq9/SEarXZqgayxcOpSp3teYlOdMIF4+MvRDPoM9Cjc3L\nwOfSM0IoyXLMDfoL5Ch9QU5Qtrxyq+GHx/3mUYMycRUzNa7e3p2lIpP9p/8qw95GfI1oj/qsPwZ5\nlQ==";
+        String DeString = AESUtil.Decrypt(enString, cKey, sIV);
+        System.out.println(enString + "\n解密后的字串是：\n" + DeString);
 //
 //        // lUseTime = System.currentTimeMillis() - lStart;
 //        // System.out.println("解密耗时：" + lUseTime + "毫秒");
 //
 //        System.out.println(HMacMD5.getHmacMd5Str("EiKKGv9jW7edfD", "www.chargerlink.com" + enString + "20160729032255"));
 
-        System.out.println(HMacMD5.getHmacMd5Str("1234567890abcdef", "mcWREe9KhOVn19yheI8qIvNhvM+Zx8U\/c+GPCtqc3PlRfeUpkCjystXpAnSae5\/G7ImdrxygkObYQ2zMLatOGg=="));
+//        System.out.println(HMacMD5.getHmacMd5Str("1234567890abcdef", "mcWREe9KhOVn19yheI8qIvNhvM+Zx8U\/c+GPCtqc3PlRfeUpkCjystXpAnSae5\/G7ImdrxygkObYQ2zMLatOGg=="));
 //        System.out.println(HMacMD5.getHmacMd5Str("1234567890abcdee", "589179428uQExW7UhWPpjAqUNhoIdSSeUiFOmoHdt2HqMKjtaL5Fjhy4FasGsSp5BLJnkwS0W1F9fJ8X0R0GS\r\n" +
 //                "NtXnrZToPQ==201703271500010001"));
     }

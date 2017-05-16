@@ -35,3 +35,5 @@
 - 响应的内容拼接顺序： ret + msg + data 
 - 比如响应的内容如下： ret = 0,  msg="1", data="abc" 
 - 那么签名的string是： 01abc  
+
+### DEBUG FOR japy
