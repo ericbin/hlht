@@ -1179,13 +1179,14 @@ MathJax.Hub.Config({
 <h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>当前版本号</h3>
 <blockquote>
 <ul>
-<li>v2017-05-12</li>
+<li>v2017-05-17</li>
 </ul>
 </blockquote>
 <h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>协议版本更新日志</h3>
 <blockquote>
 <ul>
 <li>v2017-05-12 第一个版本</li>
+<li>v2017-05-17 新增异步通知行为接口； 修改设备接口ID为设备ID；</li>
 </ul>
 </blockquote>
 <h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>协议前提说明</h3>
@@ -1225,8 +1226,8 @@ MathJax.Hub.Config({
         <td>格式“运营商ID+唯一编号”，27字符</td>
     </tr>
     <tr>
-        <td>充电设备接口编码</td>
-        <td>ConnectorID</td>
+        <td>充电设备编码</td>
+        <td>EquipmentID</td>
         <td>是</td>
         <td>字符串</td>
         <td>参见《电动汽车充换电服务信息交换 第2部分：公共信息交换规范》</td>
@@ -1272,11 +1273,91 @@ MathJax.Hub.Config({
     </tr>
 </table>
 
-<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>附录</h3>
-<h5 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>小车发起充电时序图</h5>
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>推送移动小车结果</h3>
+<h5 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>概述</h5>
+<blockquote>
+<ul>
+<li>此接口用于设备归属运营商向客户运营商推送移动小车的结果信息</li>
+</ul>
+</blockquote>
+<h5 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口定义</h5>
+<blockquote>
+<ul>
+<li>接口名称： notification_move_charge_result</li>
+<li>接口使用方法：由数联云商实现此接口，充电网方调用</li>
+</ul>
+</blockquote>
+<h5 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>输入参数</h5>
+<table>
+    <tr>
+        <th>参数名称</th>
+        <th>定义</th>
+        <th>必填</th>
+        <th>参数类型</th>
+        <th>描述</th>
+    </tr>
+    <tr>
+        <td>充电订单号</td>
+        <td>StartChargeSeq</td>
+        <td>是</td>
+        <td>字符串</td>
+        <td>格式“运营商ID+唯一编号”，27字符</td>
+    </tr>
+    <tr>
+        <td>充电设备编码</td>
+        <td>EquipmentID</td>
+        <td>是</td>
+        <td>字符串</td>
+        <td>参见《电动汽车充换电服务信息交换 第2部分：公共信息交换规范》</td>
+    </tr>
+    <tr>
+        <td>当前车位位置</td>
+        <td>ParkingLotIndex</td>
+        <td>是</td>
+        <td>整数</td>
+        <td>参见充电网-数联云商小车二维码信息规范</td>
+    </tr>
+</table>
+
+<h5 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>返回值</h5>
+<table>
+    <tr>
+        <th>参数名称</th>
+        <th>定义</th>
+        <th>必填</th>
+        <th>参数类型</th>
+        <th>描述</th>
+    </tr>
+    <tr>
+        <td>充电订单号</td>
+        <td>StartChargeSeq</td>
+        <td>是</td>
+        <td>字符串</td>
+        <td>格式“运营商ID+唯一编号”，27字符</td>
+    </tr>
+    <tr>
+        <td>成功状态</td>
+        <td>SuccStat</td>
+        <td>是</td>
+        <td>整型</td>
+        <td>0:成功；1:失败</td>
+    </tr>
+    <tr>
+        <td>失败原因</td>
+        <td>FailReason</td>
+        <td>是</td>
+        <td>整型</td>
+        <td>0:无；1:其他</td>
+    </tr>
+</table>
+
+<h3 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>附录</h3>
+<h5 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>小车发起充电时序图</h5>
 <pre class="uml-sequence-diagram"><code>数联云商-&gt;充电网公有云: 移动小车
 充电网公有云-&gt;硬件小车: 操作小车挪位
 硬件小车-&gt;充电网公有云: 移动成功
 充电网公有云-&gt;数联云商: 移动成功
+硬件小车-&gt;充电网公有云: 移动小车到指定位置
+充电网公有云-&gt;数联云商: 移动小车到指定位置
 数联云商-&gt;充电网公有云: 开始互联互通第三部分开启成功步骤...
 </code></pre></article></body></html>
